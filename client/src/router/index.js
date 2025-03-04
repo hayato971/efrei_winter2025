@@ -2,6 +2,7 @@ import { createMemoryHistory, createRouter } from 'vue-router'
 import LoginView from '../views/LoginView'
 import ForgotPwView from '../views/ForgotPwView.vue'
 import SignUpView from '../views/SignUpView.vue'
+import HomePageView from '../views/HomePageView.vue'
 
 const routes = [
 
@@ -18,6 +19,11 @@ const routes = [
   {
     path: '/SignUp',
     component: SignUpView
+  },
+
+  {
+    path: '/HomePage',
+    component: HomePageView
   }
 ]
 
