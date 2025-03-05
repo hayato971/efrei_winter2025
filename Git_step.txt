@@ -5,38 +5,28 @@ Modifications locales → 2. git add → 3. git commit → 4. git push vers GitH
 Récupérer les modifications distantes avec git pull si nécessaire
 
 
-Collaboration step : 
+Voici un récap' :
 
-Création d'une branche pour chaque fonctionnalité ou tâche : Chaque membre crée une branche à partir de main pour travailler sur ses modifications. Cela évite les conflits et permet un suivi facile des changements.
+Tu travailles sur ta branche personnelle (hayato971) :
 
-Pour créer une branche locale :
+Fais tes modifs, test, etc.
+Quand tu veux partager ton travail avec tes collègues :
 
-git checkout -b nom-de-la-branche
-Exemple : git checkout -b ajout-fonctionnalite
+    Ajoute les fichiers modifiés :
+        git add .
+    Cela ajoute tous les fichiers modifiés à l'index pour les inclure dans ton prochain commit.
 
-Effectuer des modifications sur la branche locale : Chaque membre effectue ses modifications localement et les ajoute à la branche qu'il a créée.
+    Fais un commit pour valider tes modifications :
+        git commit -m "Message décrivant tes modifications"
+        
+    Pousse ta branche sur le remote :
 
+        git push origin hayato971
 
-git add .
-git commit -m "Description des modifications"
-Envoyer la branche sur GitHub : Une fois les modifications effectuées et commitées, chaque membre doit envoyer sa branche sur GitHub.
+    Tes collègues récupèrent tes modifs :
+    Ils font :
 
+        git checkout hayato971
+        git pull origin hayato971
 
-git push origin nom-de-la-branche
-Fusionner les modifications (Pull Request) : Lorsque le travail sur une branche est terminé, chaque membre crée une Pull Request (PR) sur GitHub pour fusionner sa branche avec la branche main du dépôt. Cela permet aux autres membres de revoir le code avant qu'il ne soit intégré.
-
-Sur GitHub :
-
-Va sur la page du dépôt.
-Clique sur "Pull requests" puis sur "New pull request".
-Sélectionne la branche que tu veux fusionner dans main.
-Clique sur "Create pull request" et ajoute une description de ce qui a été modifié.
-Revue et fusion des PR : Un autre membre du groupe (ou le responsable du projet) doit examiner la Pull Request, faire des commentaires si nécessaire, et ensuite fusionner la branche dans main en cliquant sur "Merge pull request".
-
-4. Récupérer les modifications des autres membres
-Avant de commencer à travailler, chaque membre doit s'assurer d'avoir les dernières modifications. Pour cela, il doit régulièrement mettre à jour son dépôt local avec les changements distants.
-
-Effectuer un git pull : Pour récupérer les dernières modifications de main (ou d'autres branches), chaque membre doit faire un git pull :
-
-git pull origin main
-Si un autre membre a ajouté une nouvelle fonctionnalité ou corrigé un bug sur main, tu récupéreras les dernières modifications.
+Cela leur permet de récupérer ton code et d'y travailler dessus sans toucher à la branche main.

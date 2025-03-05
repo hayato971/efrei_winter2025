@@ -11,7 +11,7 @@
                 <p>0</p>
             </div>
 
-            <div class="flex items-center justify-center flex-col text-center border border-green-300 w-20 h-20 rounded-lg bg-green-300 text-black">
+            <div class="flex mb-[20px] items-center justify-center flex-col text-center border border-green-300 w-20 h-20 rounded-lg bg-green-300 text-black">
                 <p class="text-[24px] relative -top-1">Level</p>
                 <p class="text-[20px] relative -top-1">0</p>
             </div>
