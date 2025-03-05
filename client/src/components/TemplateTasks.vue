@@ -13,20 +13,22 @@
     <div class="grid grid-cols-3 gap-10 p-10 ml-10 w-full h-full overflow-y-scroll rounded-[5px]" >
       <FolderTasks :projects="projects" :deleteFolder="deleteFolder" :taskCompleted="taskCompleted"/>
     </div>
-    <SetCompleted :completed_tasks="completed_tasks" :total_project="total_project" />
+    <SetNoCompleted v-if="":completed_tasks="completed_tasks" :total_project="total_project" />
+    <SetToCompleted 
 </div>
 </template>
 
 <script>
 import FolderField from './FolderField.vue'
 import FolderTasks from './FolderTasks.vue'
-import SetCompleted from './SetCompleted.vue'
+import SetNoCompleted from './SetNoCompleted.vue'
+import SetToCompleted from './SetToCompleted.vue'
 
 export default {
   components: {
     FolderTasks,
     FolderField,
-    SetCompleted
+    SetNoCompleted
   },
   data () {
     return {
@@ -60,15 +62,6 @@ export default {
     countProject () {
       this.total_project = this.projects.length
     },
-    /*
-    taskCompleted () {
-      this.check_box = !this.check_box
-      if (this.check_box) {
-        this.completed_tasks++
-      }
-      this.completed_tasks--
-    }
-    */
     taskCompleted (index) {
       const isChecked = this.projects[index].completed // get the current state of the task
       if (isChecked) {
@@ -77,6 +70,11 @@ export default {
         this.completed_tasks++
       }
       this.projects[index].completed = !isChecked
+    },
+    folderVerfication () {
+      if (this.total_project === this.countProject){
+        return true
+      }
     }
   }
 }
