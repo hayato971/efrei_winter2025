@@ -1,15 +1,15 @@
 <template>
-    <div>
-      <UserCard />
+    <div class="h-screen flex items-center justify-center">
+      <ProfileInfo />
     </div>
 </template>
 
 <script>
-import UserCard from '@/components/UserCard.vue'
+import ProfileInfo from '@/components/ProfileInfo.vue'
 
 export default {
   components: {
-    UserCard
+    ProfileInfo
   }
 }
 
