@@ -13,21 +13,22 @@
     <div class="grid grid-cols-3 gap-10 p-10 ml-10 w-full h-full overflow-y-scroll rounded-[5px]" >
       <FolderTasks :projects="projects" :deleteFolder="deleteFolder" :taskCompleted="taskCompleted"/>
     </div>
-    <div class="my-[20px] items-center justify-center flex flex-col">
-    <button class="w-[126px] h-[50px] absolute bg-[#791919] rounded-[10px]">Set as completed ({{completed_tasks}}/{{total_project}})</button>
-      <img class="w-[13px] h-[13px] left-[10px] top-[6px] absolute" src="../assets/locker.png" />
-    </div>
+    <SetNoCompleted v-if="":completed_tasks="completed_tasks" :total_project="total_project" />
+    <SetToCompleted 
 </div>
 </template>
 
 <script>
 import FolderField from './FolderField.vue'
 import FolderTasks from './FolderTasks.vue'
+import SetNoCompleted from './SetNoCompleted.vue'
+import SetToCompleted from './SetToCompleted.vue'
 
 export default {
   components: {
     FolderTasks,
-    FolderField
+    FolderField,
+    SetNoCompleted
   },
   data () {
     return {
@@ -61,15 +62,6 @@ export default {
     countProject () {
       this.total_project = this.projects.length
     },
-    /*
-    taskCompleted () {
-      this.check_box = !this.check_box
-      if (this.check_box) {
-        this.completed_tasks++
-      }
-      this.completed_tasks--
-    }
-    */
     taskCompleted (index) {
       const isChecked = this.projects[index].completed // get the current state of the task
       if (isChecked) {
@@ -78,44 +70,12 @@ export default {
         this.completed_tasks++
       }
       this.projects[index].completed = !isChecked
+    },
+    folderVerfication () {
+      if (this.total_project === this.countProject){
+        return true
+      }
     }
   }
 }
 </script>
-<!--
-<template>
-    <div class="w-[900px] h-[700px] bg-black rounded-[5px] shadow-[0px_0px_9px_3px_rgba(255,255,255,0.35)] flex flex-col items-center justify-between p-4">
-      <div class="text-center text-red-500 font-bold text-2xl">
-        <h2>
-          Monthly Tasks
-        </h2>
-        <button @click="addFolder" class="bg-green-500 text-white px-3 py-1 rounded-md hover:bg-green-600 transition-colors text-sm"
-        > Add project </button>
-      </div>
-        <div class="grid grid-cols-3 gap-10 p-10 ml-10 w-full h-full overflow-y-scroll rounded-[5px]" >
-            <FolderTasks :projects="projects"/>
-        </div>
-    </div>
-</template>
-
-<script>
-import FolderTasks from './FolderTasks.vue'
-
-export default {
-  components: {
-    FolderTasks
-  },
-  data () {
-    return {
-      projects: []
-    }
-  },
-  methods: {
-    addFolder () {
-      this.projects.push({ name: 'Projet ' + (this.projects.length + 1) })
-    }
-  }
-}
-
-</script>
--->
