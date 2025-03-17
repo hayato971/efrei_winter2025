@@ -13,22 +13,21 @@
     <div class="grid grid-cols-3 gap-10 p-10 ml-10 w-full h-full overflow-y-scroll rounded-[5px]" >
       <FolderTasks :projects="projects" :deleteFolder="deleteFolder" :taskCompleted="taskCompleted"/>
     </div>
-    <SetNoCompleted v-if="":completed_tasks="completed_tasks" :total_project="total_project" />
-    <SetToCompleted 
+    <SetCompleted :completed_tasks="completed_tasks" :total_project="total_project" />
 </div>
 </template>
 
 <script>
 import FolderField from './FolderField.vue'
 import FolderTasks from './FolderTasks.vue'
-import SetNoCompleted from './SetNoCompleted.vue'
-import SetToCompleted from './SetToCompleted.vue'
+import SetCompleted from './SetCompleted.vue'
+
 
 export default {
   components: {
     FolderTasks,
     FolderField,
-    SetNoCompleted
+    SetCompleted
   },
   data () {
     return {
