@@ -22,6 +22,7 @@ import FolderField from './FolderField.vue'
 import FolderTasks from './FolderTasks.vue'
 import SetCompleted from './SetCompleted.vue'
 
+
 export default {
   components: {
     FolderTasks,
@@ -60,15 +61,6 @@ export default {
     countProject () {
       this.total_project = this.projects.length
     },
-    /*
-    taskCompleted () {
-      this.check_box = !this.check_box
-      if (this.check_box) {
-        this.completed_tasks++
-      }
-      this.completed_tasks--
-    }
-    */
     taskCompleted (index) {
       const isChecked = this.projects[index].completed // get the current state of the task
       if (isChecked) {
@@ -77,6 +69,11 @@ export default {
         this.completed_tasks++
       }
       this.projects[index].completed = !isChecked
+    },
+    folderVerfication () {
+      if (this.total_project === this.countProject){
+        return true
+      }
     }
   }
 }
